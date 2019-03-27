@@ -10,7 +10,6 @@ class PackageFinderTest extends TestCase
 {
     private $fixtures;
 
-
     /**
      * @inheritDoc
      */
@@ -25,7 +24,13 @@ class PackageFinderTest extends TestCase
         $finder = new PackageFinder("{$this->fixtures}/valid_project");
         $dependencies = $finder->getProjectPackage();
 
-        self::assertSame(["dependencies" => ["a" => "1.0", "b" => "2.0"]], $dependencies);
+        self::assertSame([
+            "dependencies" => [
+                "a" => "1.0",
+                "b" => "2.0",
+                "c" => "3.0",
+            ]
+        ], $dependencies);
     }
 
 

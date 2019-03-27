@@ -34,6 +34,7 @@ class MimeoMappingFinder
     public function getMapping () : array
     {
         $this->log = [];
+        $mapping = [];
 
         $packageDependencies = $this->packageFinder->getProjectPackage()["dependencies"] ?? [];
 
@@ -47,7 +48,6 @@ class MimeoMappingFinder
         foreach (\array_keys($packageDependencies) as $dependencyName)
         {
             $dependencyPackage = $this->packageFinder->getDependencyPackage($dependencyName);
-            $mapping = [];
 
             // skip: no mimeo entry
             if (!isset($dependencyPackage["mimeo"]))

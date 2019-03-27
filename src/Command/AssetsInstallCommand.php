@@ -36,7 +36,7 @@ class AssetsInstallCommand extends Command
     /**
      * @inheritDoc
      */
-    protected function configure ()
+    protected function configure () : void
     {
         $this
             ->setDescription("Installs the NPM assets into the project.")

@@ -2,7 +2,6 @@
 
 namespace Becklyn\Mimeo\Finder;
 
-
 class MimeoMappingFinder
 {
     /**
@@ -27,7 +26,7 @@ class MimeoMappingFinder
 
 
     /**
-     * Returns the mapping
+     * Returns the mapping.
      *
      * @return array
      */

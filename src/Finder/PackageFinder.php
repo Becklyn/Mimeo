@@ -2,7 +2,6 @@
 
 namespace Becklyn\Mimeo\Finder;
 
-
 use Becklyn\Mimeo\Exception\InvalidPackageJsonException;
 
 class PackageFinder
@@ -18,12 +17,12 @@ class PackageFinder
      */
     public function __construct (string $projectDir)
     {
-        $this->projectDir = rtrim($projectDir, "/");
+        $this->projectDir = \rtrim($projectDir, "/");
     }
 
 
     /**
-     * Returns the package.json content of the project itself
+     * Returns the package.json content of the project itself.
      *
      * @return array
      */
@@ -34,7 +33,7 @@ class PackageFinder
 
 
     /**
-     * Returns the package.json content of a dependency
+     * Returns the package.json content of a dependency.
      *
      * @param string $dependency
      *
@@ -42,12 +41,12 @@ class PackageFinder
      */
     public function getDependencyPackage (string $dependency) : ?array
     {
-        return $this->loadFile("node_modules/" . trim($dependency, "/"));
+        return $this->loadFile("node_modules/" . \trim($dependency, "/"));
     }
 
 
     /**
-     * Returns a path to a directory inside the package
+     * Returns a path to a directory inside the package.
      *
      * @param string $dependency
      * @param string $path
@@ -56,20 +55,21 @@ class PackageFinder
      */
     public function getDependencyDirectoryPath (string $dependency, string $path) : string
     {
-        return "{$this->projectDir}/node_modules/" . trim($dependency, "/") . "/" . trim($path, "/");
+        return "{$this->projectDir}/node_modules/" . \trim($dependency, "/") . "/" . \trim($path, "/");
     }
 
 
     /**
      * @param string $path
      *
-     * @return array
      * @throws InvalidPackageJsonException
+     *
+     * @return array
      */
     private function loadFile (?string $path) : array
     {
         $relativePath = null !== $path
-            ? "/" . trim($path, "/")
+            ? "/" . \trim($path, "/")
             : "";
 
         $filePath = "{$this->projectDir}{$relativePath}/package.json";

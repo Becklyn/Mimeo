@@ -35,7 +35,7 @@ class AssetsCopy
     {
         $this->mimeoMappingFinder = $mimeoMappingFinder;
         $this->filesystem = $filesystem;
-        $this->projectDir = rtrim($projectDir, "/");
+        $this->projectDir = \rtrim($projectDir, "/");
     }
 
 
@@ -43,7 +43,7 @@ class AssetsCopy
      * Copies all assets.
      *
      * @param SymfonyStyle $io
-     * @param bool         $hardCopy if true, will create a hard copy, if false will create an absolute link.
+     * @param bool         $hardCopy if true, will create a hard copy, if false will create an absolute link
      * @param string       $target
      *
      * @return bool
@@ -70,14 +70,14 @@ class AssetsCopy
 
         if ($hardCopy)
         {
-            $fileSystemAction = function (string $name, string $origin) use ($targetDir)
+            $fileSystemAction = function (string $name, string $origin) use ($targetDir) : void
             {
                 $this->filesystem->mirror($origin, "{$targetDir}/{$name}");
             };
         }
         else
         {
-            $fileSystemAction = function (string $name, string $origin) use ($targetDir)
+            $fileSystemAction = function (string $name, string $origin) use ($targetDir) : void
             {
                 $this->filesystem->symlink($origin, "{$targetDir}/{$name}");
             };

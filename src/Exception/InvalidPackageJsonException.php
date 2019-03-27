@@ -2,8 +2,6 @@
 
 namespace Becklyn\Mimeo\Exception;
 
-
 class InvalidPackageJsonException extends MimeoException
 {
-
 }

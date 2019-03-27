@@ -13,28 +13,28 @@ class PackageFinderTest extends TestCase
     /**
      * @inheritDoc
      */
-    protected function setUp ()
+    protected function setUp () : void
     {
         $this->fixtures = \dirname(__DIR__) . "/_fixtures";
     }
 
 
-    public function testProject ()
+    public function testProject () : void
     {
         $finder = new PackageFinder("{$this->fixtures}/valid_project");
         $dependencies = $finder->getProjectPackage();
 
-        self::assertSame([
+        static::assertSame([
             "dependencies" => [
                 "a" => "1.0",
                 "b" => "2.0",
                 "c" => "3.0",
-            ]
+            ],
         ], $dependencies);
     }
 
 
-    public function testBrokenDependency ()
+    public function testBrokenDependency () : void
     {
         $this->expectException(InvalidPackageJsonException::class);
         $finder = new PackageFinder("{$this->fixtures}/dependency_parse");
@@ -42,7 +42,7 @@ class PackageFinderTest extends TestCase
     }
 
 
-    public function testInvalidTypeDependency ()
+    public function testInvalidTypeDependency () : void
     {
         $this->expectException(InvalidPackageJsonException::class);
         $finder = new PackageFinder("{$this->fixtures}/dependency_parse");
@@ -50,16 +50,16 @@ class PackageFinderTest extends TestCase
     }
 
 
-    public function testMissingDependency ()
+    public function testMissingDependency () : void
     {
         $finder = new PackageFinder("{$this->fixtures}/dependency_parse");
-        self::assertSame([], $finder->getDependencyPackage("missing"));
+        static::assertSame([], $finder->getDependencyPackage("missing"));
     }
 
 
-    public function testValidDependency ()
+    public function testValidDependency () : void
     {
         $finder = new PackageFinder("{$this->fixtures}/dependency_parse");
-        self::assertSame(["name" => "test"], $finder->getDependencyPackage("valid"));
+        static::assertSame(["name" => "test"], $finder->getDependencyPackage("valid"));
     }
 }

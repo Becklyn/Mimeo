@@ -19,10 +19,15 @@
     ],
     "require": {
         "php": "^7.2",
+        "ext-json": "*",
         "symfony/config": "^4.2",
         "symfony/console": "^4.2",
         "symfony/dependency-injection": "^4.2",
         "symfony/http-kernel": "^4.2"
+    },
+    "require-dev": {
+        "becklyn/php-cs": "^1.0.9",
+        "symfony/phpunit-bridge": "^4.2.4"
     },
     "config": {
         "sort-packages": true
@@ -30,6 +35,11 @@
     "autoload": {
         "psr-4": {
             "Becklyn\\Mimeo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Becklyn\\Mimeo\\": "tests/"
         }
     }
 }

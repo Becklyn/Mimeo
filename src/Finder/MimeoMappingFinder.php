@@ -17,7 +17,6 @@ class MimeoMappingFinder
 
 
     /**
-     * @param PackageFinder $packageFinder
      */
     public function __construct (PackageFinder $packageFinder)
     {
@@ -27,8 +26,6 @@ class MimeoMappingFinder
 
     /**
      * Returns the mapping.
-     *
-     * @return array
      */
     public function getMapping () : array
     {

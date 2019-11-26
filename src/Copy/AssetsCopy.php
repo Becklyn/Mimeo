@@ -27,9 +27,6 @@ class AssetsCopy
 
 
     /**
-     * @param MimeoMappingFinder $mimeoMappingFinder
-     * @param Filesystem         $filesystem
-     * @param string             $projectDir
      */
     public function __construct (MimeoMappingFinder $mimeoMappingFinder, Filesystem $filesystem, string $projectDir)
     {
@@ -42,11 +39,7 @@ class AssetsCopy
     /**
      * Copies all assets.
      *
-     * @param SymfonyStyle $io
-     * @param bool         $hardCopy if true, will create a hard copy, if false will create an absolute link
-     * @param string       $target
-     *
-     * @return bool
+     * @param bool $hardCopy if true, will create a hard copy, if false will create an absolute link
      */
     public function copyAll (SymfonyStyle $io, bool $hardCopy, string $target) : bool
     {
@@ -95,10 +88,6 @@ class AssetsCopy
 
 
     /**
-     * @param callable     $action
-     * @param string       $logLabel
-     * @param SymfonyStyle $io
-     * @param array        $packages
      */
     private function performFileSystemActions (callable $action, string $logLabel, SymfonyStyle $io, array $packages) : void
     {

@@ -13,7 +13,6 @@ class PackageFinder
 
 
     /**
-     * @param string $projectDir
      */
     public function __construct (string $projectDir)
     {
@@ -35,8 +34,6 @@ class PackageFinder
     /**
      * Returns the package.json content of a dependency.
      *
-     * @param string $dependency
-     *
      * @return array
      */
     public function getDependencyPackage (string $dependency) : ?array
@@ -47,11 +44,6 @@ class PackageFinder
 
     /**
      * Returns a path to a directory inside the package.
-     *
-     * @param string $dependency
-     * @param string $path
-     *
-     * @return string
      */
     public function getDependencyDirectoryPath (string $dependency, string $path) : string
     {
@@ -63,8 +55,6 @@ class PackageFinder
      * @param string $path
      *
      * @throws InvalidPackageJsonException
-     *
-     * @return array
      */
     private function loadFile (?string $path) : array
     {

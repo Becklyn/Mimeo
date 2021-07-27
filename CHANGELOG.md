@@ -1,3 +1,9 @@
+1.0.2
+=====
+
+*   (bug) Create relative symlinks.
+
+
 1.0.1
 =====
 

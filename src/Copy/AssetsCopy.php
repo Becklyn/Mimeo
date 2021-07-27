@@ -72,7 +72,8 @@ class AssetsCopy
         {
             $fileSystemAction = function (string $name, string $origin) use ($targetDir) : void
             {
-                $this->filesystem->symlink($origin, "{$targetDir}/{$name}");
+                $relativeOrigin = $this->filesystem->makePathRelative($origin, $targetDir);
+                $this->filesystem->symlink($relativeOrigin, "{$targetDir}/{$name}");
             };
         }
 

@@ -1,7 +1,8 @@
 {
     "name": "becklyn/mimeo",
-    "type": "symfony-bundle",
     "description": "Mimeo: copy (static) assets from NPM packages into your symfony project.",
+    "license": "BSD-3-Clause",
+    "type": "symfony-bundle",
     "keywords": [
         "becklyn",
         "symfony",
@@ -9,14 +10,13 @@
         "package.json",
         "mirror"
     ],
-    "homepage": "https://github.com/Becklyn/Mimeo",
-    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Becklyn Studios",
             "homepage": "https://becklyn.com/"
         }
     ],
+    "homepage": "https://github.com/Becklyn/Mimeo",
     "require": {
         "php": ">=7.4",
         "ext-json": "*",
@@ -29,9 +29,6 @@
         "roave/security-advisories": "dev-master",
         "symfony/phpunit-bridge": "^v5.4.3 || ^v6.0.3"
     },
-    "config": {
-        "sort-packages": true
-    },
     "autoload": {
         "psr-4": {
             "Becklyn\\Mimeo\\": "src/"
@@ -41,5 +38,8 @@
         "psr-4": {
             "Tests\\Becklyn\\Mimeo\\": "tests/"
         }
+    },
+    "config": {
+        "sort-packages": true
     }
 }
